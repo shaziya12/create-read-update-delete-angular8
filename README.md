@@ -13,7 +13,7 @@
 -Stackblitz
 -angular material 
 ## How to use 
-Before Rrnning this project install the below npm packages
+Before Running this project install the below npm packages
 
 #### Installation 
 `npm install -g @angular/cli` 
