@@ -26,7 +26,7 @@ export class EmployeeComponent implements OnInit {
   onClear() {
     this.service.form.reset();
     this.service.initializeFormGroup();
-    this.notificationService.success(':: Submitted successfully');
+    this.notificationService.success('Submitted successfully!');
   }
 
   onSubmit() {
@@ -37,7 +37,7 @@ export class EmployeeComponent implements OnInit {
       this.service.updateEmployee(this.service.form.value);
       this.service.form.reset();
       this.service.initializeFormGroup();
-     this.notificationService.success(':: Submitted successfully');
+     this.notificationService.success('Submitted successfully');
       this.onClose();
      
     }

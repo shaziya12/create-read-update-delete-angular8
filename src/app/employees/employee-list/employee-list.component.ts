@@ -5,7 +5,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { EmployeeComponent } from "./../employee/employee.component";
-
+import { NotificationService } from '../../shared/notification.service';
 @Component({
   selector: 'app-employee-list',
   templateUrl: './employee-list.component.html'
@@ -15,6 +15,7 @@ export class EmployeeListComponent implements OnInit {
 
   constructor(public service: EmployeeService,
    private dialog: MatDialog,
+    private notificationService: NotificationService,
    
     ) { } 
 
@@ -75,9 +76,8 @@ listData: MatTableDataSource<any>;
   }
 
   onDelete($key){
-    if(confirm('Are you sure to delete this record ?')){
+  
     this.service.deleteEmployee($key);
-   
-      }
-  }
+   this.notificationService.warn('Successfully Deleted');
+      }  
 }
