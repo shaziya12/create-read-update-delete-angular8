@@ -25,7 +25,7 @@ import { MatToolbarModule } from "@angular/material/toolbar";
 import { AngularFireModule } from "@angular/fire";
 import { AngularFireDatabaseModule } from "@angular/fire/database";
 import { EmployeeListComponent } from "./employees/employee-list/employee-list.component";
-
+import { NotificationService } from './shared/notification.service';
 import { environment } from "../environment/environment";
 @NgModule({
   imports: [
@@ -34,7 +34,7 @@ import { environment } from "../environment/environment";
     // MaterialModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-MatToolbarModule,
+    MatToolbarModule,
     MatGridListModule,
     MatFormFieldModule,
     MatSnackBarModule,
@@ -49,8 +49,7 @@ MatToolbarModule,
     MatIconModule,
     MatSortModule,
     MatPaginatorModule,
-    MatDialogModule,
-    
+    MatDialogModule
   ],
   declarations: [
     AppComponent,
@@ -60,9 +59,7 @@ MatToolbarModule,
     EmployeeListComponent
   ],
   bootstrap: [AppComponent],
-  providers: [EmployeeService,
-  
-	],
-  entryComponents:[EmployeeComponent]
+  providers: [EmployeeService, NotificationService],
+  entryComponents: [EmployeeComponent]
 })
 export class AppModule {}

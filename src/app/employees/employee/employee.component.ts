@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { EmployeeService } from '../../shared/employee.service';
 
 import{ MatDialogRef } from '@angular/material/dialog';
+import { NotificationService } from '../../shared/notification.service';
 @Component({
   selector: 'app-employee',
   templateUrl: './employee.component.html',
@@ -11,7 +12,7 @@ import{ MatDialogRef } from '@angular/material/dialog';
 export class EmployeeComponent implements OnInit {
 
   constructor(public service: EmployeeService,
- 
+ private notificationService: NotificationService,
     public dialogref:MatDialogRef<EmployeeComponent>
     ) { }
 
@@ -25,7 +26,7 @@ export class EmployeeComponent implements OnInit {
   onClear() {
     this.service.form.reset();
     this.service.initializeFormGroup();
-    
+    this.notificationService.success(':: Submitted successfully');
   }
 
   onSubmit() {
@@ -36,7 +37,7 @@ export class EmployeeComponent implements OnInit {
       this.service.updateEmployee(this.service.form.value);
       this.service.form.reset();
       this.service.initializeFormGroup();
-     
+     this.notificationService.success(':: Submitted successfully');
       this.onClose();
      
     }
