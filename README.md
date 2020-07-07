@@ -1,15 +1,7 @@
 # CRUD Operation
 
 ---
-### Table of Contents
 
-You're sections headers will be used to reference location of destination.
-
--[Description] [#description]
--[How to Use] [#How to Use]
--[Technologies][Technologies]
-
----
 ## Decription 
  here in this we can  CREATE,READ ,UPDATE, DELETE the data which is coming from angular
  firebase (Real-time data)
@@ -41,8 +33,8 @@ You can also use ng generate
 
 ---
 
-###Build
+##Build
 Run ng build to build the project. The build artifacts will be stored in the dist/ directory. 
 Use the --prod flag for a production build.
 ## Reference
-[Back to the Top][#CRUD Operation]
+
