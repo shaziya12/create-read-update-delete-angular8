@@ -112,8 +112,38 @@ Add the below two class database & angular firelist from angularfire database
 ## Formatting Implemented.
            
 
-      Amount: In order to format this I have use the type numeric in the input field and used the built in pipe currency
-      ` <mat-cell *matCellDef="let element">{{element.salary| currency:'USD'}}</mat-cell>`
+      Amount: create a custom pipe<br/>
+**In amount.pipe.ts**<br/>
+
+`import { Pipe, PipeTransform } from '@angular/core';`<br/>
+
+`@Pipe({`<br/>
+ ` name: 'thousandSuff'`<br/>
+`})`<br/>
+`export class ThousandSuffixesPipe implements PipeTransform {`<br/>
+
+ ` transform(input: any, args?: any): any {`<br/>
+    `var exp, rounded,`<br/>
+   `   suffixes = ['k', 'M', 'G', 'T', 'P', 'E'];`<br/>
+
+   ` if (Number.isNaN(input)) {`<br/>
+   `   return null;`<br/>
+   ` }`<br/>
+
+   ` if (input < 1000) {`<br/>
+    `  return input;`<br/>
+   ` }`
+
+  `  exp = Math.floor(Math.log(input) / Math.log(1000));`<br/>
+
+   ` return (input / Math.pow(1000, exp)).toFixed(args) + suffixes[exp - 1];`<br/>
+
+
+` }`<br/>
+
+`}`<br/>
+**In employee-list.component.ts**<br/>
+      ` <mat-cell *matCellDef="let element">{{element.salary| amount}}</mat-cell>`
 
       Text:In order to format this I have use the type text in the input field
       ` <input formControlName="name" type="text" matInput placeholder="Your Name*">`

@@ -21,7 +21,7 @@
     </ng-container>
     <ng-container matColumnDef="salary">
       <mat-header-cell *matHeaderCellDef mat-sort-header>Salary</mat-header-cell>
-      <mat-cell *matCellDef="let element">{{element.salary| currency:'USD'}}</mat-cell>
+      <mat-cell *matCellDef="let element">{{element.salary| amount }}</mat-cell>
     </ng-container>
   
     <ng-container matColumnDef="actions">

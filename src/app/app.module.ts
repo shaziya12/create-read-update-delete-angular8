@@ -27,6 +27,9 @@ import { AngularFireDatabaseModule } from "@angular/fire/database";
 import { EmployeeListComponent } from "./employees/employee-list/employee-list.component";
 import { NotificationService } from './shared/notification.service';
 import { environment } from "../environment/environment";
+
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { AmountPipe } from './amount.pipe';
 @NgModule({
   imports: [
     BrowserModule,
@@ -49,14 +52,16 @@ import { environment } from "../environment/environment";
     MatIconModule,
     MatSortModule,
     MatPaginatorModule,
-    MatDialogModule
+    MatDialogModule,
+    Ng2SearchPipeModule
   ],
   declarations: [
     AppComponent,
     HelloComponent,
     EmployeesComponent,
     EmployeeComponent,
-    EmployeeListComponent
+    EmployeeListComponent,
+    AmountPipe
   ],
   bootstrap: [AppComponent],
   providers: [EmployeeService, NotificationService],
