@@ -18,27 +18,27 @@ import {  AngularFireList, AngularFireDatabase } from '@angular/fire/database';
    
    
   });
-   getEmployees()  // defining a function in order to retrieve all inserted records into employeeList.
-    {   
-    this.employeeList = this.firebase.list('employees'); // here employees is a node in firebase DB 
-    return this.employeeList.snapshotChanges(); //using this snapshotChanges() which returns an observable from angular AngularFireList
-    }
+  // defining a function in order to retrieve all inserted records into employeeList, defining a function in order to retrieve all inserted records into employeeList.using this snapshotChanges() which returns an observable from angular AngularFireList.
+    
+   getEmployees()  {   
+    this.employeeList = this.firebase.list('employees'); 
+    return this.employeeList.snapshotChanges(); }
 
- insertEmployee(employee) //  this function contain one parameter employee 
-  {
-    this.employeeList.push // In order to insert new record use push() from AngularFireList and pass an object containing details of new                              employee, so whenever a new record is inserted , a primary key ($key ) will also be generated
-    ({
-      name: employee.name,     
+ this function contain one parameter employee ,In order to insert new record use push() from AngularFireList and pass an object containing details of new employee, so whenever a new record is inserted , a primary key ($key ) will also be generated.
+  
+ insertEmployee(employee) {
+      this.employeeList.push ({
+       name: employee.name,     
       age: employee.age,
-      salary: employee.salary,
-     
+      salary: employee.salary,   
     });
   }
 ---
 ## Edit Record Implemented
-updateEmployee(employee)  //this function contain one parameter employee , In order to modify existing record use update() from AngularFireList and pass ana primary key ($key )and object containing details of existing employee, 
- {
-    this.employeeList.update(employee.$key,
+//this function contain one parameter employee , In order to modify existing record use update() from AngularFireList and pass ana primary key ($key )and object containing details of existing employee.
+
+updateEmployee(employee) { 
+     this.employeeList.update(employee.$key,
       {
         name: employee.name,
         age: employee.age,
@@ -49,7 +49,9 @@ updateEmployee(employee)  //this function contain one parameter employee , In or
 ---
 ## Delete Record Implemented 
 
- deleteEmployee($key: string) {  //this function contain one parameter employee i.e  primary key ($key ) and remove the record by using remove ()
+this function contain one parameter employee i.e  primary key ($key ) and remove the record by using remove ().
+
+ deleteEmployee($key: string) {  
     this.employeeList.remove($key);
   }
 ---
@@ -58,22 +60,22 @@ updateEmployee(employee)  //this function contain one parameter employee , In or
 
 In app.module.ts 
 
-import { MatTableModule } from '@angular/material/table';
-import { MatSortModule } from '@angular/material/sort';
-import { MatPaginationModule } from '@angular/material/pagination';
+-import { MatTableModule } from '@angular/material/table';
+-import { MatSortModule } from '@angular/material/sort';
+-import { MatPaginationModule } from '@angular/material/pagination';
 
 In employee-list.component.ts:
 
  For listing the data in angular materialTable import the below line
-import { MatTableDataSource } from '@angular/material/table';
-import { MatSort } from '@angular/material/sort';
-import { MatPaginator } from '@angular/material/paginator';
+-import { MatTableDataSource } from '@angular/material/table';
+-import { MatSort } from '@angular/material/sort';
+-import { MatPaginator } from '@angular/material/paginator';
 
 defining a property of the type of list data which is the type of MatTableDataSource
 
-listData: MatTableDataSource<any>; 
-@ViewChild(MatSort,{static:true}) sort: MatSort;    //Used a ViewChild decorative which will look  for MatSort directive
-@ViewChild(MatPaginator,{static:true}) paginator: MatPaginator; //Used a ViewChild decorative which will look  for MatPaginator directive
+-listData: MatTableDataSource<any>; 
+-@ViewChild(MatSort,{static:true}) sort: MatSort;    //Used a ViewChild decorative which will look  for MatSort directive
+-@ViewChild(MatPaginator,{static:true}) paginator: MatPaginator; //Used a ViewChild decorative which will look  for MatPaginator directive
 
     ngOnInit() {
     this.service.getEmployees().subscribe(
