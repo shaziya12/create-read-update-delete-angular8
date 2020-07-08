@@ -24,7 +24,7 @@ Add the below two class database & angular firelist from angularfire database
     `return this.employeeList.snapshotChanges();`<br/>
     `}`
 
- *this function contain one parameter employee ,In order to insert new record use push() from AngularFireList and pass an object containing details of new employee, so whenever a new record is inserted , a primary key ($key ) will also be generated.*
+ *this function contain one parameter employee ,In order to insert new record use push() from AngularFireList and pass an object containing details of new employee, so whenever a new record is inserted , a primary key ($key ) will also be generated*
   
  `insertEmployee(employee) {`<br/>
      ` this.employeeList.push ({`<br/>
@@ -35,7 +35,7 @@ Add the below two class database & angular firelist from angularfire database
   }`
 ---
 ## Edit Record Implemented
-*this function contain one parameter employee , In order to modify existing record use update() from AngularFireList and pass ana primary key ($key )and object containing details of existing employee.*
+*this function contain one parameter employee , In order to modify existing record use update() from AngularFireList and pass ana primary key ($key )and object containing details of existing employee*
 
 `updateEmployee(employee) {`<br/>
      `this.employeeList.update(employee.$key,`<br/>
@@ -49,7 +49,7 @@ Add the below two class database & angular firelist from angularfire database
 ---
 ## Delete Record Implemented 
 
-*this function contain one parameter employee i.e  primary key ($key ) and remove the record by using remove ()*
+*this function contain one parameter employee i.e  primary key ($key ) and remove the record by using remove*
 
 `deleteEmployee($key: string) {  `<br/>
    ` this.employeeList.remove($key);`<br/>
