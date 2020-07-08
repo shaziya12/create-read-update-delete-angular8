@@ -7,7 +7,7 @@ In  employee.service.ts:
 Add the below two class database & angular firelist from angularfire database
 
 `import {  AngularFireList, AngularFireDatabase } from @angular/fire/database';`<br/>
-*here employeeList is of type firelist*<br/>
+*Here employeeList is of type firelist*<br/>
  `employeeList: AngularFireList<any>;`<br/>  
  `form: FormGroup = new FormGroup({`<br/> 
    ` $key: new FormControl(null),`<br/> 
@@ -17,14 +17,14 @@ Add the below two class database & angular firelist from angularfire database
    
    
  ` });`<br/>
-   *defining a function in order to retrieve all inserted records into employeeList, defining a function in order to retrieve all inserted records into employeeList.using this snapshotChanges() which returns an observable from angular AngularFireList* <br/>
+   *Defining a function in order to retrieve all inserted records into employeeList,using this snapshotChanges() which returns an observable from angular AngularFireList* <br/>
    
   `getEmployees() {` <br/> 
    ` this.employeeList = this.firebase.list('employees');` <br/>
     `return this.employeeList.snapshotChanges();`<br/>
     `}`
 
- *this function contain one parameter employee ,In order to insert new record use push() from AngularFireList and pass an object containing details of new employee, so whenever a new record is inserted , a primary key ($key ) will also be generated*
+ *This below function contain one parameter employee ,In order to insert new record use push() from AngularFireList and pass an object containing details of new employee, so whenever a new record is inserted , a primary key ($key ) will also be generated*
   
  `insertEmployee(employee) {`<br/>
      ` this.employeeList.push ({`<br/>
@@ -35,7 +35,7 @@ Add the below two class database & angular firelist from angularfire database
  ` }`
 ---
 ## Edit Record Implemented
-*this function contain one parameter employee , In order to modify existing record use update() from AngularFireList and pass ana primary key ($key )and object containing details of existing employee*
+*This below function contain one parameter employee , In order to modify existing record use update() from AngularFireList and pass an primary key ($key )and object containing details of existing employee*
 
 `updateEmployee(employee) {`<br/>
      `this.employeeList.update(employee.$key,`<br/>
@@ -49,7 +49,7 @@ Add the below two class database & angular firelist from angularfire database
 ---
 ## Delete Record Implemented 
 
-*this function contain one parameter employee i.e  primary key ($key ) and remove the record by using remove*
+*This below function contain one parameter employee i.e  primary key ($key ) and remove the record by using remove*
 
 `deleteEmployee($key: string) {  `<br/>
    ` this.employeeList.remove($key);`<br/>
@@ -71,7 +71,7 @@ Add the below two class database & angular firelist from angularfire database
 ` import { MatSort } from '@angular/material/sort';`<br/>
 ` import { MatPaginator } from '@angular/material/paginator';`<br/>
 
-*defining a property of the type of list data which is the type of MatTableDataSource*
+*Defining a property of the type of list data which is the type of MatTableDataSource*
 
 `listData: MatTableDataSource<any>; `<br/>  
 ` @ViewChild(MatSort,{static:true}) sort: MatSort;` <br/>  
