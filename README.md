@@ -30,9 +30,9 @@ Add the below two class database & angular firelist from angularfire database
      ` this.employeeList.push ({`<br/>
      `  name: employee.name,`   <br/>
     `age: employee.age,`<br/>
-    `  salary: employee.salary,`<br/>
-    });
-  }`
+    ` salary: employee.salary,`<br/>
+   ` });`<br/>
+ ` }`
 ---
 ## Edit Record Implemented
 *this function contain one parameter employee , In order to modify existing record use update() from AngularFireList and pass ana primary key ($key )and object containing details of existing employee*
@@ -44,7 +44,7 @@ Add the below two class database & angular firelist from angularfire database
       `  age: employee.age,`<br/>
        ` salary: employee.salary,`<br/>
       
-      `});`<br/>
+      `});`
  ` }`
 ---
 ## Delete Record Implemented 
