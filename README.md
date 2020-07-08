@@ -19,32 +19,32 @@ Add the below two class database & angular firelist from angularfire database
   });`
    *defining a function in order to retrieve all inserted records into employeeList, defining a function in order to retrieve all inserted records into employeeList.using this snapshotChanges() which returns an observable from angular AngularFireList* <br/>
    
-  `getEmployees() {`  
+  `getEmployees() {` <br/> 
    ` this.employeeList = this.firebase.list('employees');` <br/>
     `return this.employeeList.snapshotChanges();`<br/>
     `}`
 
  *this function contain one parameter employee ,In order to insert new record use push() from AngularFireList and pass an object containing details of new employee, so whenever a new record is inserted , a primary key ($key ) will also be generated.*
   
- `insertEmployee(employee) {`
-     ` this.employeeList.push ({`
-     `  name: employee.name,`   
-    `age: employee.age,`
-    `  salary: employee.salary,   `
+ `insertEmployee(employee) {`<br/>
+     ` this.employeeList.push ({`<br/>
+     `  name: employee.name,`   <br/>
+    `age: employee.age,`<br/>
+    `  salary: employee.salary,`<br/>
     });
   }`
 ---
 ## Edit Record Implemented
 *this function contain one parameter employee , In order to modify existing record use update() from AngularFireList and pass ana primary key ($key )and object containing details of existing employee.*
 
-`updateEmployee(employee) {`
-     `this.employeeList.update(employee.$key,`
+`updateEmployee(employee) {`<br/>
+     `this.employeeList.update(employee.$key,`<br/>
       `{`
-    `name: employee.name,`
-      `  age: employee.age,`
-       ` salary: employee.salary,`
+    `name: employee.name,`<br/>
+      `  age: employee.age,`<br/>
+       ` salary: employee.salary,`<br/>
       
-      `});`
+      `});`<br/>
  ` }`
 ---
 ## Delete Record Implemented 
