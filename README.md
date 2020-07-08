@@ -104,8 +104,8 @@ Add the below two class database & angular firelist from angularfire database
 
 *adding matSort directive to a dataSource and add  mat-header-sort directive , to those mat header cell which is to be sorted `*
 
- `<mat-table [dataSource]="listData"  matSort>`
- `<mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" [pageSize]="5" showFirstLastButtons></mat-paginator>`
+ `<mat-table [dataSource]="listData"  matSort>`<br/>
+ `<mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" [pageSize]="5" showFirstLastButtons></mat-paginator>`<br/>
 
 ---
 
