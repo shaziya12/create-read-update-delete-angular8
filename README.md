@@ -2,39 +2,94 @@
 
 ---
 
-## Decription 
- here in this we can  CREATE,READ ,UPDATE, DELETE the data which is coming from angular
- firebase (Real-time data)
+## Add Record Implemented
 
-####  Technologies
+import {  AngularFireList, AngularFireDatabase } from '@angular/fire/database';
+ employeeList: AngularFireList<any>;
+  form: FormGroup = new FormGroup({
+    $key: new FormControl(null),
+    name: new FormControl('', Validators.required),
+    age: new FormControl('', Validators.required),
+    salary: new FormControl('', Validators.required)
+   
+   
+  });
+   getEmployees() {
+    this.employeeList = this.firebase.list('employees');
+    return this.employeeList.snapshotChanges();
+  }
 
--Angular
--Typescript
--Stackblitz
--angular material 
-## How to use 
-Before Running this project install the below npm packages
+ insertEmployee(employee) {
+    this.employeeList.push({
+      name: employee.name,
+      age: employee.age,
+      salary: employee.salary,
+     
+    });
+  }
+---
+## Edit Record Implemented
+updateEmployee(employee) {
+    this.employeeList.update(employee.$key,
+      {
+        name: employee.name,
+        age: employee.age,
+        salary: employee.salary,
+        
+      });
+  }
+---
+## Delete Record Implemented
+ deleteEmployee($key: string) {
+    this.employeeList.remove($key);
+  }
+---
+## Sorting added to the grid
 
-#### Installation 
-`npm install -g @angular/cli` 
-To have the lastest version of angular 
- `npm install @angular/fire` version 6.0.2
- `npm install firebase ` version 7 ,
- To get link with the angular firebase (get access to data) 
- `npm install @angular/material ` version 10.0.1
- `npm angular/cdk` version 10.0.1 
-  To have a material design for Table
+How to use: Click on the header to sort.
 
+employee-list.component.ts
+import { MatTableDataSource } from '@angular/material/table';
+import { MatSort } from '@angular/material/sort';
+import { MatPaginator } from '@angular/material/paginator';
+
+listData: MatTableDataSource<any>;
+ @ViewChild(MatSort,{static:true}) sort: MatSort;
+  @ViewChild(MatPaginator,{static:true}) paginator: MatPaginator;
+
+    ngOnInit() {
+    this.service.getEmployees().subscribe(
+      list => {
+        let array = list.map(item => {
+         
+          return {
+            $key: item.key,
+            
+            ...item.payload.val()
+          };
+        });
+        this.listData = new MatTableDataSource(array);
+        this.listData.sort = this.sort;
+        this.listData.paginator = this.paginator;
+        this.listData.filterPredicate = (data, filter) => {
+          return this.displayedColumns.some(ele => {
+            return ele != 'actions' && data[ele].toLowerCase().indexOf(filter) != -1;
+          });
+        };
+      });
+  }
+ In employee-list.component.html
+ <mat-table [dataSource]="listData"  matSort>
 ---
 
-### Development server
-Run ng generate component component-name to generate a new component. 
-You can also use ng generate
+## Formatting Implemented.
+            How to use: pass format:'Amount/Text/Number' in the column object of the component options.
+      etc....
+
+      Amount:
+       <mat-cell *matCellDef="let element">{{element.salary| currency:'USD'}}</mat-cell>
+       Text:
+       Number:
 
 ---
-
-##Build
-Run ng build to build the project. The build artifacts will be stored in the dist/ directory. 
-Use the --prod flag for a production build.
-## Reference
 
