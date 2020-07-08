@@ -3,9 +3,13 @@
 ---
 
 ## Add Record Implemented
+In  employee.service.ts:
+
+Add the below two class database & angular firelist from angularfire database
 
 import {  AngularFireList, AngularFireDatabase } from '@angular/fire/database';
- employeeList: AngularFireList<any>;
+
+ employeeList: AngularFireList<any>;  //here employeeList is of type firelist.
   form: FormGroup = new FormGroup({
     $key: new FormControl(null),
     name: new FormControl('', Validators.required),
@@ -14,14 +18,17 @@ import {  AngularFireList, AngularFireDatabase } from '@angular/fire/database';
    
    
   });
-   getEmployees() {
-    this.employeeList = this.firebase.list('employees');
-    return this.employeeList.snapshotChanges();
-  }
+   getEmployees()  // defining a function in order to retrieve all inserted records into employeeList.
+    {   
+    this.employeeList = this.firebase.list('employees'); // here employees is a node in firebase DB 
+    return this.employeeList.snapshotChanges(); //using this snapshotChanges() which returns an observable from angular AngularFireList
+    }
 
- insertEmployee(employee) {
-    this.employeeList.push({
-      name: employee.name,
+ insertEmployee(employee) //  this function contain one parameter employee 
+  {
+    this.employeeList.push // In order to insert new record use push() from AngularFireList and pass an object containing details of new                              employee, so whenever a new record is inserted , a primary key ($key ) will also be generated
+    ({
+      name: employee.name,     
       age: employee.age,
       salary: employee.salary,
      
@@ -29,19 +36,20 @@ import {  AngularFireList, AngularFireDatabase } from '@angular/fire/database';
   }
 ---
 ## Edit Record Implemented
-updateEmployee(employee) {
+updateEmployee(employee)  //this function contain one parameter employee , In order to modify existing record use update() from AngularFireList and pass ana primary key ($key )and object containing details of existing employee, 
+ {
     this.employeeList.update(employee.$key,
       {
         name: employee.name,
         age: employee.age,
         salary: employee.salary,
-        
+      
       });
   }
 ---
-## Delete Record Implemented
+## Delete Record Implemented 
 
- deleteEmployee($key: string) {
+ deleteEmployee($key: string) {  //this function contain one parameter employee i.e  primary key ($key ) and remove the record by using remove ()
     this.employeeList.remove($key);
   }
 ---
