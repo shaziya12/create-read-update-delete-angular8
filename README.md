@@ -113,7 +113,7 @@ Add the below two class database & angular firelist from angularfire database
            
 
       Amount: create a custom pipe<br/>
-**In amount.pipe.ts**<br/>
+**In amount.pipe.ts**
 
 `import { Pipe, PipeTransform } from '@angular/core';`<br/>
 
@@ -123,7 +123,7 @@ Add the below two class database & angular firelist from angularfire database
 `export class ThousandSuffixesPipe implements PipeTransform {`<br/>
 
  ` transform(input: any, args?: any): any {`<br/>
-    `var exp, rounded,`<br/>
+    ` var exp, rounded,`<br/>
    `   suffixes = ['k', 'M', 'G', 'T', 'P', 'E'];`<br/>
 
    ` if (Number.isNaN(input)) {`<br/>
