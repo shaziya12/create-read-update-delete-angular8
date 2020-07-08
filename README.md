@@ -60,22 +60,23 @@ this function contain one parameter employee i.e  primary key ($key ) and remove
 
 In app.module.ts 
 
--import { MatTableModule } from '@angular/material/table';
--import { MatSortModule } from '@angular/material/sort';
--import { MatPaginationModule } from '@angular/material/pagination';
+- import { MatTableModule } from '@angular/material/table';
+- import { MatSortModule } from '@angular/material/sort';
+- import { MatPaginationModule } from '@angular/material/pagination';
 
 In employee-list.component.ts:
 
  For listing the data in angular materialTable import the below line
--import { MatTableDataSource } from '@angular/material/table';
--import { MatSort } from '@angular/material/sort';
--import { MatPaginator } from '@angular/material/paginator';
+- import { MatTableDataSource } from '@angular/material/table';
+- import { MatSort } from '@angular/material/sort';
+- import { MatPaginator } from '@angular/material/paginator';
 
-defining a property of the type of list data which is the type of MatTableDataSource
+**defining a property of the type of list data which is the type of MatTableDataSource**
 
--listData: MatTableDataSource<any>; 
--@ViewChild(MatSort,{static:true}) sort: MatSort;    //Used a ViewChild decorative which will look  for MatSort directive
--@ViewChild(MatPaginator,{static:true}) paginator: MatPaginator; //Used a ViewChild decorative which will look  for MatPaginator directive
+- listData: MatTableDataSource<any>; 
+- @ViewChild(MatSort,{static:true}) sort: MatSort; <br/>   **Used a ViewChild decorative which will look  for MatSort directive**
+- @ViewChild(MatPaginator,{static:true}) paginator: MatPaginator;<br/>
+ **Used a ViewChild decorative which will look  for MatPaginator directive**
 
     ngOnInit() {
     this.service.getEmployees().subscribe(
@@ -88,9 +89,9 @@ defining a property of the type of list data which is the type of MatTableDataSo
             ...item.payload.val()
           }; 
         });
-        this.listData = new MatTableDataSource(array);//converting that array into listData object and can render it.
-        this.listData.sort = this.sort;// configure the data  ,link the matSort property to thie listData(dataSource)
-        this.listData.paginator = this.paginator;  //configure the data ,link the MatPaginator property to thie listData(dataSource)
+        this.listData = new MatTableDataSource(array);**converting that array into listData object and can render it.**
+        this.listData.sort = this.sort;// configure the data  ,link the matSort property to the listData(dataSource)**
+        this.listData.paginator = this.paginator;  **configure the data ,link the MatPaginator property to thie listData(dataSource)**
         this.listData.filterPredicate = (data, filter) => {
           return this.displayedColumns.some(ele => {
             return ele != 'actions' && data[ele].toLowerCase().indexOf(filter) != -1;
@@ -100,7 +101,7 @@ defining a property of the type of list data which is the type of MatTableDataSo
   }
 In employee-list.component.html:
 
-adding matSort directive to a dataSource and add  mat-header-sort directive , to those mat header cell which is to be sorted 
+**adding matSort directive to a dataSource and add  mat-header-sort directive , to those mat header cell which is to be sorted *
 
  <mat-table [dataSource]="listData"  matSort>
  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" [pageSize]="5" showFirstLastButtons></mat-paginator>
