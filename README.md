@@ -99,7 +99,7 @@ Add the below two class database & angular firelist from angularfire database
         ` });`
        ` };`
      ` });`
-  `}`
+  `}`<br/>
 **In employee-list.component.html:**
 
 *adding matSort directive to a dataSource and add  mat-header-sort directive , to those mat header cell which is to be sorted `*
