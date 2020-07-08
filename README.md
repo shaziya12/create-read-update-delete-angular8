@@ -7,7 +7,7 @@ In  employee.service.ts:
 Add the below two class database & angular firelist from angularfire database
 
 `import {  AngularFireList, AngularFireDatabase } from @angular/fire/database';`<br/>
-*here employeeList is of type firelist*
+*here employeeList is of type firelist*<br/>
  `employeeList: AngularFireList<any>;`<br/>  
  `form: FormGroup = new FormGroup({`<br/> 
    ` $key: new FormControl(null),`<br/> 
