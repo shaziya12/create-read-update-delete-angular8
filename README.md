@@ -16,7 +16,7 @@ Add the below two class database & angular firelist from angularfire database
     ` salary: new FormControl('', Validators.required)`<br/>
    
    
-  });`
+ ` });`<br/>
    *defining a function in order to retrieve all inserted records into employeeList, defining a function in order to retrieve all inserted records into employeeList.using this snapshotChanges() which returns an observable from angular AngularFireList* <br/>
    
   `getEmployees() {` <br/> 
@@ -77,12 +77,12 @@ Add the below two class database & angular firelist from angularfire database
 ` @ViewChild(MatSort,{static:true}) sort: MatSort;` <br/>  
 ` @ViewChild(MatPaginator,{static:true}) paginator: MatPaginator;`<br/>
 
- *Used a ViewChild decorative which will look  for  MatSort and MatPaginator directive and converting that array into listData object and can render it.configure the data  ,link the matSort,MatPaginator property to the listData(dataSource)*
+ *Used a ViewChild decorative which will look  for  MatSort and MatPaginator directive and converting that array into listData object and can render it.configure the data  ,link the matSort,MatPaginator property to the listData(dataSource)*<br/>
 
-  `ngOnInit() {`
-   ` this.service.getEmployees().subscribe(`
-     ` list => {`
-      `  let array = list.map(item => {`
+  `ngOnInit() {`<br/>
+   ` this.service.getEmployees().subscribe(`<br/>
+     ` list => {`<br/>
+      `  let array = list.map(item => {`<br/>
          
          ` return {`
             `$key: item.key,`
