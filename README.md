@@ -101,7 +101,7 @@ In employee-list.component.ts:
   }
 In employee-list.component.html:
 
-**adding matSort directive to a dataSource and add  mat-header-sort directive , to those mat header cell which is to be sorted *
+**adding matSort directive to a dataSource and add  mat-header-sort directive , to those mat header cell which is to be sorted **
 
  <mat-table [dataSource]="listData"  matSort>
  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" [pageSize]="5" showFirstLastButtons></mat-paginator>

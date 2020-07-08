@@ -3,26 +3,27 @@
 	<span class="fill-remaining-space"></span>
 	<button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabIndex="-1"><mat-icon>clear</mat-icon></button>
 </mat-toolbar>
-<form [formGroup]="service.form" class="normal-form" (submit)="onSubmit()">
-	<mat-grid-list cols="2" rowHeight="300px">
-		<mat-grid-tile>
-			<div class="controles-container">
-				<input type="hidden" formControlName="$key">
-				<mat-form-field>
-					<input autocomplete="off" formControlName="name" type="text" matInput placeholder="Your Name*">
-					<mat-error>This field is mandatory.</mat-error>
-				</mat-form-field>
-				<mat-form-field>
-					<input autocomplete="off" formControlName="age" type="number" matInput placeholder="Your Age">
-					<mat-error>This field is manditory.</mat-error>
-				</mat-form-field>
-				<mat-form-field>
-					<input autocomplete="off" formControlName="salary" type="number" matInput placeholder="Your Salary">
-					<mat-error>This field is manditory.</mat-error>
-				</mat-form-field>
-			</div>
-		</mat-grid-tile>
-		<button mat-raised-button color="primary" type="submit" [disabled]="service.form.invalid">Submit</button>
-		<button mat-raised-button color="warn" (click)="onClear()">Clear</button>
-	</mat-grid-list>
-</form>
+
+  <form [formGroup]="service.form" class="normal-form" (submit)="onSubmit()">
+    	<div class="controles-container">
+        	<input type="hidden" formControlName="$key">
+      <div class="form-group">
+        <label for="Employee first_name">Employee Name</label>
+        <input type="text" class="form-control" autocomplete="off" placeholder="Enter Your Name"formControlName="name" >
+      </div>
+      <div class="form-group">
+        <label for="Employee Age">Age</label>
+        <input type="number" class="form-control" autocomplete="off" 
+        placeholder="Enter Your Age" formControlName="age">
+      </div>
+      <div class="form-group">
+        <label for="Employee Salary">Salary</label>
+        <input type="number" class="form-control" autocomplete="off" placeholder="Enter Your Salary" formControlName="salary">
+      </div>
+     	<button mat-raised-button color="primary" type="submit" [disabled]="service.form.invalid">Submit</button>
+	
+    </div>
+    </form>
+
+
+
