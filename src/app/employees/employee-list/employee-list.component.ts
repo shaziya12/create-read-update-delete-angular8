@@ -6,7 +6,7 @@ import { MatPaginator } from "@angular/material/paginator";
 import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
 import { EmployeeComponent } from "./../employee/employee.component";
 import { NotificationService } from "../../shared/notification.service";
-
+import * as _ from 'lodash';
 @Component({
   selector: "app-employee-list",
   templateUrl: "./employee-list.component.html"
@@ -36,13 +36,7 @@ export class EmployeeListComponent implements OnInit {
       this.listData = new MatTableDataSource(array);
       this.listData.sort = this.sort;
       this.listData.paginator = this.paginator;
-      this.listData.filterPredicate = (data, filter) => {
-        return this.displayedColumns.some(ele => {
-          return (
-            ele != "actions" && data[ele].toLowerCase().indexOf(filter) != -1
-          );
-        });
-      };
+   
     });
   }
 
